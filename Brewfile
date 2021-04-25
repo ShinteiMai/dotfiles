@@ -53,6 +53,7 @@ brew "fastlane"
 brew "fish"
 brew "neovim", args: ["HEAD"]
 brew "tmux"
+brew "reattach-to-user-namespace"
 cask "iterm2"
 cask "font-hasklug-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
