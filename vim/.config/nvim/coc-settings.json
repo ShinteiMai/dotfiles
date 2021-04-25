@@ -1,19 +1,11 @@
 {
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
-    }
-  },
   "tsserver.enableJavascript": true,
   "prettier.singleQuote": true,
+
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
+
   "rpc.detailsEditing": "Hacking a {LANG} file!",
   "rpc.detailsInExplorer": "{null}",
   "rpc.detailsViewing": "Scouting a {LANG} file!",
@@ -24,6 +16,7 @@
   "rpc.lowerDetailsViewing": "{null}",
   "rpc.workspaceText": "{null}",
   "rpc.workspaceElapsedTime": true,
+
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",
@@ -50,5 +43,16 @@
     "snippet": "\ue60b",
     "typeParameter": "\uf728",
     "default": "\uf29c"
+  },
+
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
   }
 }
