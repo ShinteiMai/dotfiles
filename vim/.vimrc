@@ -1,5 +1,5 @@
 " Initialize autocmd
-autocmd!
+" autocmd!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NEOVIM || VIM SETUP 
@@ -28,6 +28,7 @@ call plug#begin(g:pluggedPath)
 
   " Theme
   Plug 'tomasiser/vim-code-dark'
+  Plug 'itchyny/lightline.vim'
   Plug 'ryanoasis/vim-devicons'
 
   " File Explorer
@@ -41,7 +42,7 @@ call plug#begin(g:pluggedPath)
   Plug 'airblade/vim-rooter'
 
   " Editing helpers
-  Plug 'scrooloose/nerdcommenter'
+  Plug 'tpope/vim-commentary' 
   Plug 'yggdroot/indentline'
   Plug 'jiangmiao/auto-pairs'
   Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -90,7 +91,7 @@ colorscheme codedark
 " Cursor style
 set cursorline
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-highlight LineNr       cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
+highlight LineNr    cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
 augroup BgHighlight
   autocmd!
@@ -124,9 +125,6 @@ set number
 
 " Set vim background transparency
 hi Normal guibg=NONE ctermbg=NONE
-
-" Reload neovim automatically
-au BufWritePost ~/.dotfiles/vim/.vimrc so $MYVIMRC 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -216,9 +214,9 @@ nmap <C-w><down> <C-w>-
 " Remove search results
 nnoremap <leader><space> :noh<cr>
 
-
 " Format file with Prettier 
 nmap ff :CocCommand prettier.formatFile<Return><C-w>w
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " INDENTLINE 
@@ -427,45 +425,39 @@ command! -bang -nargs=* GGrep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Lightline 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Status line
-if !exists('*fugitive#statusline')
-  set statusline=%F\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}[L%l/%L,C%03v]
-  set statusline+=%=
-  set statusline+=%{fugitive#statusline()}
-endif
 
 let g:lightline = {
-  \ 'colorscheme': 'default',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'fugitive', 'readonly', 'filename', 'modified' ]
-  \           ],
-  \   'right': [
-  \     ['ale'],
-  \     ['lineinfo'],
-  \     ['percent'],
-  \     ['charcode', 'fileformat', 'filetype'],
-  \   ]
-  \ },
-  \ 'inactive': {
-  \   'left': [ [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component': {
-  \   'filename': '%f'
-  \ },
-  \ 'component_function': {
-  \   'fugitive': 'MyFugitive',
-  \   'readonly': 'MyReadonly',
-  \   'modified': 'MyModified',
-  \   'ale': 'ALEGetStatusLine'
-  \ },
-  \ 'separator': { 'left': '', 'right': '' },
-  \ 'subseparator': { 'left': '', 'right': '' }
-  \ }
+      \ 'colorscheme': 'default',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ]
+      \           ],
+      \   'right': [
+      \     ['ale'],
+      \     ['lineinfo'],
+      \     ['percent'],
+      \     ['charcode', 'fileformat', 'filetype'],
+      \   ]
+      \ },
+      \ 'inactive': {
+      \   'left': [ [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'filename': '%f'
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'readonly': 'MyReadonly',
+      \   'modified': 'MyModified',
+      \   'ale': 'ALEGetStatusLine'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
 
 function! MyModified()
   if &filetype == "help"
-   return ""
+    return ""
   elseif &modified
     return "+"
   elseif &modifiable
@@ -491,6 +483,8 @@ function! MyFugitive()
 endfunction
 
 set noshowmode
+set laststatus=2
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CoC 
@@ -604,5 +598,3 @@ let g:coc_global_extensions = [
   \ 'coc-tailwindcss',
   \ 'coc-go',
   \ ]
-
-
