@@ -215,8 +215,7 @@ nmap <C-w><down> <C-w>-
 nnoremap <leader><space> :noh<cr>
 
 " Format file with Prettier 
-nmap ff :CocCommand prettier.formatFile<Return><C-w>w
-
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " INDENTLINE 

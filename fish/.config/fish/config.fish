@@ -47,11 +47,6 @@ alias getpass="openssl rand -base64 20"
 # Workspaces
 alias dotfiles='cd ~/.dotfiles'
 
-alias fab_alchemy='cd ~/Workspaces/fabelio/fabelio_alchemy'
-alias fab_marvel='cd ~/Workspaces/fabelio/fabelio_marvel'
-alias fab_pms='cd ~/Workspaces/fabelio/fabelio_pms'
-alias fab_marvel_ui='cd ~/Workspaces/fabelio/fabelio_marvelui'
-
 # youtube-dl
 alias dl='youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" --merge-output-format mp4 $1'
 alias dlmp3='youtube-dl --extract-audio --audio-format mp3 $1'
@@ -81,7 +76,7 @@ alias mdbu='brew services start mongodb-community'
 alias mdbd='brew services stop mongodb-community'
 
 # IDE script to initialize a coding environment
-alias ide='./$HOME/scripts/ide.sh'
+alias ide='bash $HOME/scripts/ide.sh'
 
 # Reload fish config script
 alias reload='source $HOME/.config/fish/config.fish'
@@ -91,11 +86,6 @@ alias reload='source $HOME/.config/fish/config.fish'
 # THEME 
 ###########################################################
 
-# set -g theme_color_scheme dark
-
-# set -g theme_display_git_default_branch yes
-# set -g theme_display_user yes
-# set -g theme_title_display_path yes
 set -g theme_display_git yes
 set -g theme_display_git_dirty no
 set -g theme_display_git_untracked no
