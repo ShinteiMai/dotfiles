@@ -107,10 +107,8 @@ cask "discord"
 cask "figma"
 cask "paragon-ntfs"
 cask "minecraft"
+cask "istat-menus"
 
 mas "Amphetamine", id: 937984704
 mas "Xcode", id: 497799835
 mas "LINE", id: 539883307
-mas "Microsoft Word", id: 462054704
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft Powerpoint", id: 462062816
