@@ -109,6 +109,7 @@ cask "paragon-ntfs"
 cask "minecraft"
 cask "istat-menus"
 cask "zoom"
+cask "cold-turkey-blocker"
 
 mas "Amphetamine", id: 937984704
 mas "Xcode", id: 497799835
