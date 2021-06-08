@@ -2,6 +2,8 @@
   "tsserver.enableJavascript": true,
   "prettier.singleQuote": true,
 
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",

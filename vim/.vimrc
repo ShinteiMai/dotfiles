@@ -51,6 +51,9 @@ call plug#begin(g:pluggedPath)
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 
+  " Snippets
+  Plug 'honza/vim-snippets'
+
   " Language Syntax
   Plug 'yuezk/vim-js', { 'for': ['javascript', 'javascriptreact'] }
   Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescriptreact'] }
@@ -588,6 +591,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Extensions
 let g:coc_global_extensions = [
   \ 'coc-json',
+  \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-eslint',
