@@ -26,6 +26,9 @@ call plug#begin(g:pluggedPath)
   " Autocompletion
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
+  " Easymotion
+  Plug 'easymotion/vim-easymotion'
+
   " Theme
   Plug 'tomasiser/vim-code-dark'
   Plug 'itchyny/lightline.vim'
