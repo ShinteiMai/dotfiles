@@ -40,7 +40,9 @@ set -u fish_user_paths /opt/homebrew/bin $fish_user_paths
 
 # General
 alias c='clear'
-alias ping='ping -c 5'
+alias v='nvim'
+alias g='git'
+alias p='ping -c 5'
 alias untar='tar -xzvf $1'
 alias getpass="openssl rand -base64 20"
 

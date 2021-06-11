@@ -45,6 +45,7 @@ call plug#begin(g:pluggedPath)
   Plug 'tpope/vim-commentary' 
   Plug 'yggdroot/indentline'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'alvan/vim-closetag'
   Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
   " Git
@@ -218,15 +219,34 @@ nmap <C-w><down> <C-w>-
 nnoremap <leader><space> :noh<cr>
 
 " Format file with Prettier 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Fmt :CocCommand prettier.formatFile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " INDENTLINE 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indentLine_char_list = ['|', '?', '?', '?']
 " Prevent removing quotes from json
 autocmd Filetype json let g:indentLine_setConceal = 0
 
+let g:indentLine_indentLevel = 10
+
+" Conceal settings
+let g:indentLine_setConceal = 1
+let g:indentLine_concealcursor = "incv"
+let g:indentLine_conceallevel = 2
+
+let g:indentLine_char = '|'
+
+let g:indentLine_leadingSpaceChar = "•"
+
+" 16 Color
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+
+" 256
+let g:indentLine_color_term = 239
+
+" True Color
+let g:indentLine_color_gui = '#616161'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GITGUTTER
@@ -240,7 +260,7 @@ let g:gitgutter_async=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " HEXOKINASE 
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:Hexokinase_refreshEvents = ['InsertLeave']
 
 let g:Hexokinase_optInPatterns = [
@@ -257,6 +277,50 @@ let g:Hexokinase_highlighters = ['backgroundfull']
 
 " Reenable hexokinase on enter
 autocmd VimEnter * HexokinaseTurnOn
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Close Tag
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+autocmd BufNewFile,BufRead *.js set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+
+let g:closetag_xhtml_filetypes = 'xhtml,javascript.jsx,jsx,typescript.tsx,typescriptreact'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.js,*.jsx,*.tsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml,javascript.jsx,jsx,typescript.tsx,typescriptreact'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
