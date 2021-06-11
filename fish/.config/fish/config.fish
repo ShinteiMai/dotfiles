@@ -34,6 +34,9 @@ end
 # Set Homebrew Path exclusive to M1 Chip
 set -u fish_user_paths /opt/homebrew/bin $fish_user_paths
 
+# devicon-lookup
+set -u fish_user_paths /Users/shinteimai/.cargo/bin $fish_user_paths
+
 ###########################################################
 # ALIASES 
 ###########################################################

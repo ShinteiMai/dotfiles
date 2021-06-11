@@ -37,6 +37,7 @@ brew "asciinema"
 brew "cocoapods"
 brew "youtube-dl"
 brew "serve"
+brew "git-delta"
 
 brew "docker"
 brew "minikube"

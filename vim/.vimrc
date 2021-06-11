@@ -33,6 +33,7 @@ call plug#begin(g:pluggedPath)
   Plug 'tomasiser/vim-code-dark'
   Plug 'itchyny/lightline.vim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'coreyja/fzf.devicon.vim'
 
   " File Explorer
   Plug 'Shougo/defx.nvim'
@@ -430,8 +431,9 @@ call defx#custom#column('git', 'indicators', {
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-map ;f :GFiles --cached --others<CR>
-map ;g :Rg<CR>
+map ;f :GFilesWithDevicons --exclude-standard --others --cached<CR>
+map ;g :RgWithDevicons<CR>
+map ;c :Commits<CR>
 
 map <leader>b :Buffers<CR>
 nnoremap <leader>t :Tags<CR>
