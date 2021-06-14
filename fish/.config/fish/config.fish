@@ -34,7 +34,7 @@ end
 # Set Homebrew Path exclusive to M1 Chip
 set -u fish_user_paths /opt/homebrew/bin $fish_user_paths
 
-# devicon-lookup
+# Rust Cargo
 set -u fish_user_paths /Users/shinteimai/.cargo/bin $fish_user_paths
 
 ###########################################################
@@ -86,6 +86,9 @@ alias ide='bash $HOME/scripts/ide.sh'
 # Reload fish config script
 alias reload='source $HOME/.config/fish/config.fish'
 
+# Python
+alias python='python3'
+alias pip='pip3'
 
 ###########################################################
 # THEME 
