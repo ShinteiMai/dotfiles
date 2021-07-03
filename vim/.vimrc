@@ -64,6 +64,8 @@ call plug#begin(g:pluggedPath)
   Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescriptreact'] }
   Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascriptreact' }
 
+  Plug 'jparise/vim-graphql'
+
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
   Plug 'dag/vim-fish', { 'for': 'fish' }
